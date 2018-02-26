@@ -14,12 +14,12 @@ var fu = false;
                 case 11:
                 case 15: // +
                     number.push(document.getElementById("num").value);
-                    fuhao.push(x[i]);
-                    fu = true;
                     if (number.length == 2) {
                         cal();
                         document.getElementById("num").value = number[0];
                     }
+                    fuhao.push(x[i]);
+                    fu = true;
                     break;
                 case 16: // 刪除
                     number = new Array();
@@ -29,7 +29,8 @@ var fu = false;
                 case 18: // 倒退
                     document.getElementById("num").value !== '' ? document.getElementById("num").value = document.getElementById("num").value.substring(0, document.getElementById("num").value.length - 1) : null;
                     break;
-                case x.length - 1:
+                case 19:
+                    console.log(number, fuhao);
                     if (fuhao.length !== 0) {
                         number.push(document.getElementById("num").value);
                     }
@@ -55,7 +56,7 @@ var fu = false;
 
                         } else {
                             document.getElementById("num").value += x[i];
-                        }   
+                        }
                     }
 
                     break;
@@ -66,7 +67,7 @@ var fu = false;
         body.appendChild(button);
     }
 
-    function cal() {
+    function cal(i) {
         switch (fuhao.pop()) {
             case '+':
                 var num1 = number.pop();
